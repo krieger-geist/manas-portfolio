@@ -19,18 +19,6 @@ Libraries: Font Awesome, Google Fonts (Poppins)
 Animations: CSS Animations, Particles.js (background)
 Responsive: CSS Grid & Flexbox
 
-🚀 Quick Start
-Clone the repository
-
-git clone https://github.com/krieger-geist/manas-portfolio.git
-cd manas-portfolio
-Open in browser
-
-bash
-# Simply open index.html in your browser
-# No build tools required - fully static!
-Deploy instantly to:
-
 GitHub Pages
 Netlify (drag & drop)
 Vercel
@@ -52,7 +40,7 @@ manas-portfolio/
 └── README.md         # You're reading it!
 
 🔗 Live Demo
-
+https://krieger-geist.github.io/manas-portfolio/
 
 Made by:  Manas Suryavanshi
 
