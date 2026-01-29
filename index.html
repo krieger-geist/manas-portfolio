@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manas Suryavanshi - BCA Developer | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="molecules-bg" style="position:fixed; width:100%; height:100%; pointer-events:none; z-index:-1; opacity:0.5;"></div>
+
+  <div id="toast" class="toast">
+    <i class="fas fa-check-circle"></i>
+    <span id="toast-msg">Message sent successfully!</span>
+  </div>
+
+  <div id="lightbox" class="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img" src="" alt="Full view">
+  </div>
+
+  <header class="header">
+    <nav class="nav">
+      <div class="logo">Manas Suryavanshi</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <!-- Changed Skills link to anchor to #about -->
+        <li><a href="#about">About & Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div style="display:flex; gap:1rem; align-items:center;">
+        <button id="theme-toggle" class="theme-btn"><i class="fas fa-moon"></i></button>
+        <button id="menu-toggle" class="menu-toggle"><i class="fas fa-bars"></i></button>
+      </div>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="hero-container">
+      <div class="hero-text">
+        <h1 class="main-name">Manas Suryavanshi</h1>
+        
+        <div class="typing-wrapper">
+          I am a Java Specialist
+        </div>
+
+        <p class="hero-subtitle">
+          BCA Student at Dezyne E`cole College. Passionate about building robust Java applications, 
+          Spring Boot backends, and integrating AI solutions.
+        </p>
+        <div class="cta-group">
+          <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Contact Me</a>
+<a href="manas_cv.pdf" class="btn btn-outline" download>
+    <i class="fas fa-download"></i> Download CV
+</a>
+        </div>
+      </div>
+
+      <div class="hero-image-wrapper">
+        <div class="hero-blob"></div>
+        <img src="seri.jpg" 
+             alt="Manas Suryavanshi" id="hero-profile-img">
+      </div>
+    </div>
+  </section>
+
+  <section id="stats" class="section" style="padding-top: 2rem;">
+    <div class="grid-4">
+      <div class="card stat-card">
+        <h3>8+</h3>
+        <p>Projects</p>
+      </div>
+     
+      <div class="card stat-card">
+        <h3>3+</h3>
+        <p>Tech Stacks</p>
+      </div>
+      <div class="card stat-card">
+        <h3>90%</h3>
+        <p>Dedication</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPANDED ABOUT SECTION WITH SKILLS -->
+  <section id="about" class="section">
+    <h2 class="section-title">About Me</h2>
+    
+    <div class="card about-container">
+      <!-- Image Side -->
+      <div class="about-img-wrapper">
+        <img src="e:\Portfolio\portfolio\seri.jpg" 
+             alt="Manas Suryavanshi Profile" 
+             class="about-img"
+             onerror="this.src='seri.jpg'">
+      </div>
+
+      <!-- Text Side -->
+      <div class="about-text">
+        <h3>Hello! I'm Manas.</h3>
+        <p>
+          I am a driven <strong>BCA student</strong> specializing in backend development and artificial intelligence. 
+          My journey involves solving real-world problems through code, whether it's building a 
+          <strong>Smart Campus AI Agent</strong> or designing efficient database schemas.
+        </p>
+        <p>
+          I am constantly exploring new technologies in the Java ecosystem and modern web development. 
+          My goal is to build scalable applications that make a difference.
+        </p>
+        
+        <!-- Highlights -->
+        <div class="about-highlights">
+          <div class="highlight-item">
+            <i class="fas fa-code"></i>
+            <span>Clean Code</span>
+          </div>
+          <div class="highlight-item">
+            <i class="fas fa-briefcase"></i>
+            <span>Problem Solver</span>
+          </div>
+          <div class="highlight-item">
+            <i class="fas fa-lightbulb"></i>
+            <span>Creative</span>
+          </div>
+        </div>
+
+        <!-- MOVED SKILLS SECTION HERE -->
+        <div class="skills-wrapper-title">Technical Skills</div>
+        <div class="about-skills-grid" id="skills-container">
+            <!-- Skills injected by JS -->
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="tabs">
+      <button class="tab-btn active" data-filter="all">All</button>
+      <button class="tab-btn" data-filter="web">Web Dev</button>
+      <button class="tab-btn" data-filter="ai">AI & Java</button>
+    </div>
+    <div class="grid-3" id="projects-container"></div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="section">
+    <h2 class="section-title">Project Gallery</h2>
+    <p style="text-align: center; margin-bottom: 2rem; color: var(--text-secondary);">
+      A visual collection of my project screenshots and demo walkthroughs.
+    </p>
+    
+    <div class="gallery-grid">
+      <!-- Gallery Items -->
+      <div class="gallery-item">
+        <span class="gallery-badge">Image</span>
+        <img src="2.png" alt="Project 1" onclick="openLightbox(this.src)">
+        <div class="gallery-overlay"><i class="fas fa-search-plus gallery-icon"></i></div>
+      </div>
+     
+      <div class="gallery-item">
+        <span class="gallery-badge">Image</span>
+        <img src="1.jpg" alt="Project 3" onclick="openLightbox(this.src)">
+        <div class="gallery-overlay"><i class="fas fa-search-plus gallery-icon"></i></div>
+      </div>
+      <div class="gallery-item">
+        <span class="gallery-badge">Image</span>
+        <img src="3.png" alt="Project 4" onclick="openLightbox(this.src)">
+        <div class="gallery-overlay"><i class="fas fa-search-plus gallery-icon"></i></div>
+      </div>
+     
+      <div class="gallery-item">
+        <span class="gallery-badge">Image</span>
+        <img src="4.png" alt="Project 6" onclick="openLightbox(this.src)">
+        <div class="gallery-overlay"><i class="fas fa-search-plus gallery-icon"></i></div>
+      </div>
+
+      <div class="gallery-item">
+        <span class="gallery-badge">Image</span>
+        <img src="5.png" alt="Project 6" onclick="openLightbox(this.src)">
+        <div class="gallery-overlay"><i class="fas fa-search-plus gallery-icon"></i></div>
+      </div>
+      <div class="gallery-item">
+        <span class="gallery-badge">Image</span>
+        <img src="6.png" alt="Project 3" onclick="openLightbox(this.src)">
+        <div class="gallery-overlay"><i class="fas fa-search-plus gallery-icon"></i></div>
+      </div>
+      <div class="gallery-item">
+        <span class="gallery-badge">Image</span>
+        <img src="7.png" alt="Project 3" onclick="openLightbox(this.src)">
+        <div class="gallery-overlay"><i class="fas fa-search-plus gallery-icon"></i></div>
+      </div>
+      <div class="gallery-item">
+        <span class="gallery-badge">Image</span>
+        <img src="8.png" alt="Project 3" onclick="openLightbox(this.src)">
+        <div class="gallery-overlay"><i class="fas fa-search-plus gallery-icon"></i></div>
+      </div>
+       <div class="gallery-item">
+        <span class="gallery-badge">Image</span>
+        <img src="9.png" alt="Project 3" onclick="openLightbox(this.src)">
+        <div class="gallery-overlay"><i class="fas fa-search-plus gallery-icon"></i></div>
+      </div>
+      
+
+
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <h2 class="section-title">Get In Touch</h2>
+    <div class="contact-container">
+      <div class="contact-info">
+        <p>I'm currently available for freelance work or full-time opportunities. 
+           If you have a project that needs some creative touch, let's talk.</p>
+        <div class="contact-info-item">
+          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+          <div>
+            <h4>Email</h4>
+            <p>manas240surya@gmail.com</p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <h4>Location</h4>
+            <p>Ajmer, Rajasthan</p>
+          </div>
+        </div>
+      </div>
+      
+      <form id="contact-form" class="card">
+        <div class="form-group">
+          <i class="fas fa-user"></i>
+          <input type="text" id="name" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" id="email" placeholder="Your Email" required>
+        </div>
+        <div class="form-group">
+          <i class="fas fa-comment"></i>
+          <textarea id="message" placeholder="Your Message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="social-icons">
+      <a href="https://github.com/krieger-geist"><i class="fab fa-github"></i></a>
+      <a href="https://x.com/ManasSurya25491"><i class="fab fa-twitter"></i></a>
+      <a href=" https://www.instagram.com/manas_singh_suryavanshi_04"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/in/manas-suryavanshi-a17986363/"><i class="fab fa-linkedin"></i></a>
+     
+    </div>
+    <p style="margin-top: 1rem;">&copy; 2026 Manas Suryavanshi. All rights reserved.</p>
+  </footer>
+ 
+  <script src="script.js"></script>
+  
+</body>
+</html>
