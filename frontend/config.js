@@ -12,4 +12,4 @@
    URL, then redeploy the frontend:
    window.PORTFOLIO_API_URL = "https://your-backend.onrender.com";
 ========================================== */
-window.PORTFOLIO_API_URL = "http://localhost:8080";
+window.PORTFOLIO_API_URL = "https://manas-portfolio-api.onrender.com";
