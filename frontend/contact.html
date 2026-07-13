@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact | Manas Suryavanshi</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+<script>if(localStorage.getItem("theme")==="light"){document.body.classList.add("light");}</script>
+
+<div id="loader">
+    <div class="loader-circle"></div>
+    <h2>Loading...</h2>
+</div>
+
+<div id="particles"></div>
+<div id="cursor-glow"></div>
+
+<header>
+
+<div class="container">
+
+<nav class="navbar">
+
+<div class="logo">
+Manas<span>Suryavanshi</span>
+</div>
+
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="projects.html">Projects</a></li>
+<li><a href="achievements.html">Achievements</a></li>
+<li><a class="active" href="contact.html">Contact</a></li>
+</ul>
+
+<button id="theme-toggle" aria-label="Toggle theme">
+<i class="fas fa-moon"></i>
+</button>
+
+<div class="menu-btn" aria-label="Open menu">
+<i class="fas fa-bars"></i>
+</div>
+
+</nav>
+
+</div>
+
+</header>
+
+<section class="contact-hero">
+
+<div class="container">
+
+<span class="section-badge">CONTACT</span>
+
+<h1>
+Let's Build Something
+<span>Together</span>
+</h1>
+
+<p>
+Whether it's an internship, freelance project, collaboration,
+or simply discussing technology, I'd love to hear from you.
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="container">
+
+<div class="contact-wrapper">
+
+<div class="glass-card contact-info">
+
+<h2>Contact Information</h2>
+
+<div class="info-box">
+<i class="fas fa-envelope"></i>
+<div>
+<h4>Email</h4>
+<p><a href="mailto:manas240surya@gmail.com">manas240surya@gmail.com</a></p>
+</div>
+</div>
+
+<div class="info-box">
+<i class="fas fa-phone"></i>
+<div>
+<h4>Phone</h4>
+<p><a href="tel:+917822938706">+91 7822938706</a></p>
+</div>
+</div>
+
+<div class="info-box">
+<i class="fas fa-location-dot"></i>
+<div>
+<h4>Location</h4>
+<p>Ajmer, Rajasthan, India</p>
+</div>
+</div>
+
+<div class="social-contact">
+
+<a href="https://github.com/krieger-geist" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+<i class="fab fa-github"></i>
+</a>
+
+<a href="https://www.linkedin.com/in/manas-suryavanshi-a17986363/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+<i class="fab fa-linkedin"></i>
+</a>
+
+<a href="mailto:manas240surya@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+<i class="fas fa-envelope"></i>
+</a>
+
+<a href="https://x.com/ManasSurya25491" target="_blank" rel="noopener noreferrer" aria-label="X">
+<i class="fab fa-x-twitter"></i>
+</a>
+
+</div>
+
+</div>
+
+<div class="glass-card contact-form">
+
+<h2>Send Message</h2>
+
+<form id="contact-form" novalidate>
+
+<div class="hp-field" aria-hidden="true">
+<label for="contact-website">Website</label>
+<input type="text" id="contact-website" name="website" tabindex="-1" autocomplete="off">
+</div>
+
+<div class="input-group">
+<input type="text" id="contact-name" name="name" placeholder="Your Name" required minlength="2" maxlength="100">
+</div>
+
+<div class="input-group">
+<input type="email" id="contact-email" name="email" placeholder="Your Email" required maxlength="150">
+</div>
+
+<div class="input-group">
+<input type="text" id="contact-subject" name="subject" placeholder="Subject" required minlength="3" maxlength="200">
+</div>
+
+<div class="input-group">
+<textarea id="contact-message" name="message" rows="7" placeholder="Write your message..." required minlength="10" maxlength="2000"></textarea>
+</div>
+
+<button type="submit" class="btn btn-primary" id="contact-submit-btn">
+<i class="fas fa-paper-plane"></i>
+<span>Send Message</span>
+</button>
+
+<div id="form-message" class="form-message" role="alert" aria-live="polite"></div>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="container">
+
+<p>© 2026 Manas Suryavanshi • All Rights Reserved</p>
+
+</div>
+
+</footer>
+
+<script src="config.js"></script>
+<script src="script.js"></script>
+
+</body>
+
+</html>
