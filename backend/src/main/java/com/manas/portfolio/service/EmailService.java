@@ -4,51 +4,59 @@ import com.manas.portfolio.dto.ContactRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.mail.MailException;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestClientException;
+import org.springframework.web.client.RestTemplate;
 
-import jakarta.mail.internet.MimeMessage;
-import java.nio.charset.StandardCharsets;
+import java.util.List;
+import java.util.Map;
 
+/**
+ * Sends contact form emails via Resend's HTTP API (https://resend.com)
+ * instead of raw SMTP. Most free-tier hosts (Render included) block
+ * outbound SMTP ports (25/465/587) to prevent spam, which makes direct
+ * Gmail SMTP time out. An HTTPS API call on port 443 is never blocked.
+ */
 @Service
 public class EmailService {
 
     private static final Logger log = LoggerFactory.getLogger(EmailService.class);
+    private static final String RESEND_API_URL = "https://api.resend.com/emails";
 
-    private final JavaMailSender mailSender;
+    private final RestTemplate restTemplate = new RestTemplate();
+
+    @Value("${resend.api-key}")
+    private String resendApiKey;
+
+    @Value("${resend.from-email}")
+    private String fromEmail;
 
     @Value("${contact.to-email}")
     private String ownerEmail;
 
-    @Value("${spring.mail.username}")
-    private String fromEmail;
-
-    public EmailService(JavaMailSender mailSender) {
-        this.mailSender = mailSender;
-    }
-
     /**
      * Sends the visitor's message straight to the portfolio owner's inbox.
      * Reply-To is set to the visitor's email so you can hit "reply" directly.
-     * Throws MailException if delivery fails - the caller decides how to respond to the client.
+     * Throws RestClientException if delivery fails - the caller decides how to respond to the client.
      */
-    public void sendOwnerNotification(ContactRequest request) throws MailException {
+    public void sendOwnerNotification(ContactRequest request) {
+        Map<String, Object> payload = Map.of(
+                "from", fromEmail,
+                "to", List.of(ownerEmail),
+                "reply_to", request.getEmail(),
+                "subject", "Portfolio Contact: " + request.getSubject(),
+                "text", buildOwnerEmailBody(request)
+        );
+
         try {
-            MimeMessage mimeMessage = mailSender.createMimeMessage();
-            MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, false, StandardCharsets.UTF_8.name());
-
-            helper.setTo(ownerEmail);
-            helper.setFrom(fromEmail);
-            helper.setReplyTo(request.getEmail());
-            helper.setSubject("Portfolio Contact: " + request.getSubject());
-            helper.setText(buildOwnerEmailBody(request));
-
-            mailSender.send(mimeMessage);
-        } catch (Exception e) {
+            send(payload);
+        } catch (RestClientException e) {
             log.error("Failed to send owner notification email", e);
-            throw new org.springframework.mail.MailSendException("Could not send notification email", e);
+            throw e;
         }
     }
 
@@ -58,18 +66,31 @@ public class EmailService {
      * notification above is the important delivery.
      */
     public void sendVisitorAcknowledgment(ContactRequest request) {
+        Map<String, Object> payload = Map.of(
+                "from", fromEmail,
+                "to", List.of(request.getEmail()),
+                "subject", "Thanks for reaching out, " + request.getName() + "!",
+                "text", buildVisitorEmailBody(request)
+        );
+
         try {
-            MimeMessage mimeMessage = mailSender.createMimeMessage();
-            MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, false, StandardCharsets.UTF_8.name());
-
-            helper.setTo(request.getEmail());
-            helper.setFrom(fromEmail);
-            helper.setSubject("Thanks for reaching out, " + request.getName() + "!");
-            helper.setText(buildVisitorEmailBody(request));
-
-            mailSender.send(mimeMessage);
-        } catch (Exception e) {
+            send(payload);
+        } catch (RestClientException e) {
             log.warn("Could not send visitor acknowledgment email (non-fatal): {}", e.getMessage());
+        }
+    }
+
+    private void send(Map<String, Object> payload) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        headers.setBearerAuth(resendApiKey);
+
+        HttpEntity<Map<String, Object>> entity = new HttpEntity<>(payload, headers);
+
+        var response = restTemplate.postForEntity(RESEND_API_URL, entity, String.class);
+
+        if (!response.getStatusCode().is2xxSuccessful()) {
+            throw new RestClientException("Resend API returned status " + response.getStatusCode());
         }
     }
 
