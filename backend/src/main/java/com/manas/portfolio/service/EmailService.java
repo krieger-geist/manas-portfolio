@@ -38,11 +38,6 @@ public class EmailService {
     @Value("${contact.to-email}")
     private String ownerEmail;
 
-    /**
-     * Sends the visitor's message straight to the portfolio owner's inbox.
-     * Reply-To is set to the visitor's email so you can hit "reply" directly.
-     * Throws RestClientException if delivery fails - the caller decides how to respond to the client.
-     */
     public void sendOwnerNotification(ContactRequest request) {
         Map<String, Object> payload = Map.of(
                 "from", fromEmail,
@@ -60,11 +55,6 @@ public class EmailService {
         }
     }
 
-    /**
-     * Sends a short "we got your message" confirmation back to the visitor.
-     * Failures here are logged but never block the main flow - the owner
-     * notification above is the important delivery.
-     */
     public void sendVisitorAcknowledgment(ContactRequest request) {
         Map<String, Object> payload = Map.of(
                 "from", fromEmail,
