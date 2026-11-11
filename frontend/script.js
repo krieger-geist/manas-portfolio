@@ -298,3 +298,265 @@
     const printBtn = document.getElementById("pitch-print");
     if (printBtn) printBtn.addEventListener("click", () => window.print());
 })();
+
+/* ==========================================
+   MODERN LAYER · interaction, motion, command palette
+========================================== */
+(function () {
+    "use strict";
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+    /* ---------- Scroll progress bar ---------- */
+    const bar = document.createElement("div");
+    bar.className = "scroll-progress";
+    bar.setAttribute("aria-hidden", "true");
+    document.body.appendChild(bar);
+    let ticking = false;
+    const updateBar = () => {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.setProperty("--p", max > 0 ? Math.min(1, window.scrollY / max) : 0);
+        ticking = false;
+    };
+    window.addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(updateBar); } }, { passive: true });
+    window.addEventListener("resize", updateBar);
+    updateBar();
+
+    /* ---------- Hero headline: word-by-word reveal ---------- */
+    const headline = document.querySelector(".hero h1.display");
+    if (headline && !reduceMotion) {
+        let n = 0;
+        const wrap = node => {
+            Array.from(node.childNodes).forEach(child => {
+                if (child.nodeType === 3) {
+                    const frag = document.createDocumentFragment();
+                    child.textContent.split(/(\s+)/).forEach(part => {
+                        if (!part) return;
+                        if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+                        const s = document.createElement("span");
+                        s.className = "w";
+                        s.style.setProperty("--i", n++);
+                        s.textContent = part;
+                        frag.appendChild(s);
+                    });
+                    child.replaceWith(frag);
+                } else if (child.nodeType === 1) {
+                    wrap(child);
+                }
+            });
+        };
+        headline.setAttribute("aria-label", headline.textContent.replace(/\s+/g, " ").trim());
+        wrap(headline);
+        headline.classList.add("split");
+    }
+
+    /* ---------- Staggered children in revealed blocks ---------- */
+    if (!reduceMotion) {
+        document.querySelectorAll(".reveal .tags, .reveal .btn-row, .metrics.reveal").forEach(el => el.classList.add("stagger"));
+    }
+
+    if (!finePointer || reduceMotion) return;
+
+    /* ---------- Spotlight + gradient border on cards ---------- */
+    document.querySelectorAll(".card, .feature").forEach(el => {
+        el.classList.add("fx");
+        el.addEventListener("pointermove", e => {
+            const r = el.getBoundingClientRect();
+            el.style.setProperty("--mx", (e.clientX - r.left) + "px");
+            el.style.setProperty("--my", (e.clientY - r.top) + "px");
+        });
+    });
+
+    /* ---------- Magnetic buttons ---------- */
+    document.querySelectorAll(".btn-primary, .btn-ghost").forEach(btn => {
+        btn.addEventListener("pointermove", e => {
+            const r = btn.getBoundingClientRect();
+            const x = (e.clientX - r.left - r.width / 2) / r.width;
+            const y = (e.clientY - r.top - r.height / 2) / r.height;
+            btn.style.setProperty("--tx", (x * 8).toFixed(1) + "px");
+            btn.style.setProperty("--ty", (y * 6).toFixed(1) + "px");
+        });
+        btn.addEventListener("pointerleave", () => {
+            btn.style.setProperty("--tx", "0px");
+            btn.style.setProperty("--ty", "0px");
+        });
+    });
+
+    /* ---------- Badge: 3D tilt with light sheen ---------- */
+    const badge = document.querySelector(".badge-card");
+    if (badge) {
+        const shine = document.createElement("div");
+        shine.className = "badge-shine";
+        shine.setAttribute("aria-hidden", "true");
+        badge.appendChild(shine);
+        badge.addEventListener("pointermove", e => {
+            const r = badge.getBoundingClientRect();
+            const px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+            badge.classList.add("tilting");
+            badge.style.setProperty("--ry", ((px - 0.5) * 14).toFixed(2) + "deg");
+            badge.style.setProperty("--rx", ((0.5 - py) * 12).toFixed(2) + "deg");
+            badge.style.setProperty("--sx", (px * 100) + "%");
+            badge.style.setProperty("--sy", (py * 100) + "%");
+        });
+        badge.addEventListener("pointerleave", () => badge.classList.remove("tilting"));
+    }
+})();
+
+/* ---------- Command palette (Ctrl/Cmd + K) ---------- */
+(function () {
+    "use strict";
+    const actions = document.querySelector(".nav-actions");
+    if (!actions) return;
+
+    const isMac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
+    const trigger = document.createElement("button");
+    trigger.type = "button";
+    trigger.className = "icon-btn cmdk-btn";
+    trigger.setAttribute("aria-label", "Open quick menu");
+    trigger.setAttribute("aria-haspopup", "dialog");
+    trigger.innerHTML = '<i class="fas fa-magnifying-glass" aria-hidden="true"></i><kbd>' + (isMac ? "⌘K" : "Ctrl K") + "</kbd>";
+    const themeBtn = document.getElementById("theme-toggle");
+    actions.insertBefore(trigger, themeBtn || actions.firstChild);
+
+    const go = url => () => { window.location.href = url; };
+    const open = url => () => { window.open(url, "_blank", "noopener"); };
+    const EMAIL = "manas240surya@gmail.com";
+    const items = [
+        { g: "Pages", icon: "fas fa-house", label: "Home", run: go("index.html") },
+        { g: "Pages", icon: "fas fa-layer-group", label: "Work", hint: "projects", run: go("projects.html") },
+        { g: "Pages", icon: "fas fa-diagram-project", label: "Playbook", hint: "how I work", run: go("playbook.html") },
+        { g: "Pages", icon: "fas fa-user", label: "About", run: go("about.html") },
+        { g: "Pages", icon: "fas fa-award", label: "Achievements", hint: "certificates", run: go("achievements.html") },
+        { g: "Pages", icon: "fas fa-paper-plane", label: "Contact", run: go("contact.html") },
+        { g: "Pages", icon: "fas fa-handshake", label: "Work with me", hint: "pitch", run: go("pitch.html") },
+        { g: "Projects", icon: "fas fa-shield-heart", label: "RELAY AEGIS case study", hint: "self-healing", run: go("projects.html#relay-aegis") },
+        { g: "Projects", icon: "fab fa-youtube", label: "Watch the RELAY AEGIS demo", hint: "YouTube", run: open("https://youtu.be/whXmm6mRuRM") },
+        { g: "Projects", icon: "fab fa-github", label: "RELAY AEGIS source code", hint: "GitHub", run: open("https://github.com/krieger-geist/relay-aegis") },
+        { g: "Actions", icon: "fas fa-file-arrow-down", label: "Open my resume", hint: "PDF", run: open("resume.pdf") },
+        { g: "Actions", icon: "fas fa-envelope", label: "Email me", hint: EMAIL, run: go("mailto:" + EMAIL) },
+        { g: "Actions", icon: "fas fa-copy", label: "Copy email address", run: () => {
+            if (navigator.clipboard) navigator.clipboard.writeText(EMAIL).then(() => toast("Email copied"), () => toast(EMAIL));
+            else toast(EMAIL);
+        } },
+        { g: "Actions", icon: "fas fa-circle-half-stroke", label: "Switch light / dark theme", run: () => { if (themeBtn) themeBtn.click(); } },
+        { g: "Elsewhere", icon: "fab fa-github", label: "GitHub profile", run: open("https://github.com/krieger-geist") },
+        { g: "Elsewhere", icon: "fab fa-linkedin-in", label: "LinkedIn", run: open("https://www.linkedin.com/in/manas-suryavanshi-a17986363/") },
+        { g: "Elsewhere", icon: "fab fa-x-twitter", label: "X (Twitter)", run: open("https://x.com/ManasSurya25491") }
+    ];
+
+    function toast(text) {
+        let t = document.querySelector(".cmdk-toast");
+        if (!t) {
+            t = document.createElement("div");
+            t.className = "cmdk-toast";
+            t.setAttribute("role", "status");
+            document.body.appendChild(t);
+        }
+        t.textContent = text;
+        t.classList.add("show");
+        clearTimeout(t._h);
+        t._h = setTimeout(() => t.classList.remove("show"), 2200);
+    }
+
+    const dlg = document.createElement("div");
+    dlg.className = "cmdk";
+    dlg.setAttribute("role", "dialog");
+    dlg.setAttribute("aria-modal", "true");
+    dlg.setAttribute("aria-label", "Quick menu");
+    dlg.innerHTML =
+        '<div class="cmdk-panel">' +
+          '<div class="cmdk-input-row"><i class="fas fa-magnifying-glass" aria-hidden="true"></i>' +
+            '<input class="cmdk-input" type="text" placeholder="Search pages, projects, actions..." aria-label="Search" role="combobox" aria-expanded="true" aria-controls="cmdk-list" autocomplete="off" spellcheck="false">' +
+            "<kbd>Esc</kbd></div>" +
+          '<ul class="cmdk-list" id="cmdk-list" role="listbox"></ul>' +
+          '<div class="cmdk-foot"><span><kbd>↑</kbd><kbd>↓</kbd>move</span><span><kbd>↵</kbd>open</span><span><kbd>Esc</kbd>close</span></div>' +
+        "</div>";
+    document.body.appendChild(dlg);
+
+    const input = dlg.querySelector(".cmdk-input");
+    const list = dlg.querySelector(".cmdk-list");
+    let shown = [], active = 0, lastFocus = null;
+
+    const mark = () => {
+        list.querySelectorAll(".cmdk-item").forEach(li => li.setAttribute("aria-selected", String(li.id === "cmdk-" + active)));
+        const cur = document.getElementById("cmdk-" + active);
+        if (cur) { input.setAttribute("aria-activedescendant", cur.id); cur.scrollIntoView({ block: "nearest" }); }
+    };
+
+    const render = () => {
+        const q = input.value.trim().toLowerCase();
+        shown = items.filter(it => !q || (it.label + " " + (it.hint || "") + " " + it.g).toLowerCase().includes(q));
+        active = Math.min(active, Math.max(0, shown.length - 1));
+        list.innerHTML = "";
+        if (!shown.length) {
+            const li = document.createElement("li");
+            li.className = "cmdk-empty";
+            li.textContent = 'No results for "' + input.value.trim() + '"';
+            list.appendChild(li);
+            input.removeAttribute("aria-activedescendant");
+            return;
+        }
+        let group = "";
+        shown.forEach((it, idx) => {
+            if (it.g !== group) {
+                group = it.g;
+                const h = document.createElement("li");
+                h.className = "cmdk-group";
+                h.setAttribute("role", "presentation");
+                h.textContent = group;
+                list.appendChild(h);
+            }
+            const li = document.createElement("li");
+            li.className = "cmdk-item";
+            li.id = "cmdk-" + idx;
+            li.setAttribute("role", "option");
+            li.innerHTML = '<i class="' + it.icon + '" aria-hidden="true"></i><span></span>' + (it.hint ? '<span class="hint"></span>' : "");
+            li.children[1].textContent = it.label;
+            if (it.hint) li.children[2].textContent = it.hint;
+            li.addEventListener("pointermove", () => { if (active !== idx) { active = idx; mark(); } });
+            li.addEventListener("click", () => runItem(idx));
+            list.appendChild(li);
+        });
+        mark();
+    };
+
+    const show = () => {
+        lastFocus = document.activeElement;
+        input.value = "";
+        active = 0;
+        render();
+        dlg.classList.add("open");
+        document.body.style.overflow = "hidden";
+        setTimeout(() => input.focus(), 10);
+    };
+    const hide = () => {
+        dlg.classList.remove("open");
+        document.body.style.overflow = "";
+        if (lastFocus && lastFocus.focus) lastFocus.focus();
+    };
+    const runItem = idx => { const it = shown[idx]; if (!it) return; hide(); it.run(); };
+
+    trigger.addEventListener("click", show);
+    dlg.addEventListener("click", e => { if (e.target === dlg) hide(); });
+    input.addEventListener("input", () => { active = 0; render(); });
+    input.addEventListener("keydown", e => {
+        const n = Math.max(1, shown.length);
+        if (e.key === "ArrowDown") { e.preventDefault(); active = (active + 1) % n; mark(); }
+        else if (e.key === "ArrowUp") { e.preventDefault(); active = (active - 1 + n) % n; mark(); }
+        else if (e.key === "Enter") { e.preventDefault(); runItem(active); }
+        else if (e.key === "Tab") { e.preventDefault(); }
+    });
+    document.addEventListener("keydown", e => {
+        const isOpen = dlg.classList.contains("open");
+        const typing = /INPUT|TEXTAREA|SELECT/.test((document.activeElement || {}).tagName || "");
+        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
+            e.preventDefault();
+            if (isOpen) hide(); else show();
+        } else if (e.key === "Escape" && isOpen) {
+            hide();
+        } else if (e.key === "/" && !isOpen && !typing) {
+            e.preventDefault();
+            show();
+        }
+    });
+})();
