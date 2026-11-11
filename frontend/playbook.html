@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Playbook · Manas Suryavanshi</title>
+<meta name="description" content="How Manas Suryavanshi can contribute to your company&#x27;s systems: backend APIs, reliability and self-healing, safe AI integration and modernization, with process and architecture diagrams.">
+<meta name="theme-color" content="#0a0d12">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Playbook · Manas Suryavanshi">
+<meta property="og:description" content="How Manas Suryavanshi can contribute to your company&#x27;s systems: backend APIs, reliability and self-healing, safe AI integration and modernization, with process and architecture diagrams.">
+<meta property="og:url" content="https://manas-suryavanshi.netlify.app/playbook.html">
+<meta property="og:image" content="https://manas-suryavanshi.netlify.app/relay-aegis.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230a0d12'/%3E%3Ctext x='50' y='64' font-family='monospace' font-size='40' font-weight='700' text-anchor='middle' fill='%234ade80'%3EMS%3C/text%3E%3C/svg%3E">
+<script>(function(){try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <nav class="container nav" aria-label="Main">
+    <a class="brand" href="index.html" aria-label="Manas Suryavanshi, home">
+      <span class="brand-mark">MS</span>
+      <span>Manas Suryavanshi</span>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html">Work</a></li>
+      <li><a href="playbook.html" aria-current="page">Playbook</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="achievements.html">Achievements</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a class="btn btn-primary btn-sm hire-btn" href="pitch.html"><i class="fas fa-handshake"></i><span>Work with me</span></a>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch colour theme">
+        <i class="fas fa-moon theme-icon-dark" aria-hidden="true"></i>
+        <i class="fas fa-sun theme-icon-light" aria-hidden="true"></i>
+      </button>
+      <button class="icon-btn menu-btn" type="button" aria-label="Open menu" aria-controls="nav-links" aria-expanded="false">
+        <i class="fas fa-bars" aria-hidden="true"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<main id="main">
+
+<section class="container page-hero">
+  <span class="eyebrow">Playbook</span>
+  <h1>How I can make your systems <span class="hl">better</span>.</h1>
+  <p class="lead">Whether you're a company with software in production or a client with an idea, this is what I
+  bring, how I work, and what you get at each step.</p>
+  <div class="btn-row"><a class="btn btn-primary" href="contact.html"><i class="fas fa-paper-plane"></i> Discuss a project</a><a class="btn btn-ghost" href="#process"><i class="fas fa-route"></i> See the process</a></div>
+</section>
+
+<section class="section-tight" id="services">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">What I do</span>
+      <h2 class="h2">Four ways I contribute</h2>
+    </div>
+    <div class="grid grid-2">
+      <article class="card service reveal">
+        <span class="icon-chip"><i class="fas fa-server"></i></span>
+        <h3>Backend APIs &amp; services</h3>
+        <p>New services or cleaning up existing ones, built to be easy to call, secure and well documented.</p>
+        <ul>
+          <li>REST APIs in Java 21 &amp; Spring Boot 3</li>
+          <li>JWT auth, roles and Spring Security</li>
+          <li>PostgreSQL / MySQL schema, JPA, migrations</li>
+          <li>OpenAPI docs, tests and Docker images</li>
+        </ul>
+        <p class="outcome">Aim: <b>a documented API your frontend and partners can build on</b></p>
+      </article>
+      <article class="card service reveal">
+        <span class="icon-chip"><i class="fas fa-heart-pulse"></i></span>
+        <h3>Reliability &amp; self-healing</h3>
+        <p>The approach I built and tested in RELAY AEGIS, applied to your services.</p>
+        <ul>
+          <li>Health checks, metrics (Prometheus, Grafana)</li>
+          <li>Alerts to Slack and Sentry that people act on</li>
+          <li>Policy-checked automatic recovery with verification</li>
+          <li>Chaos tests and runbooks for known failures</li>
+        </ul>
+        <p class="outcome">Aim: <b>faster detection and recovery, measured before and after</b></p>
+      </article>
+      <article class="card service reveal">
+        <span class="icon-chip blue"><i class="fas fa-wand-magic-sparkles"></i></span>
+        <h3>AI integration, done safely</h3>
+        <p>AI features that save real time, with guardrails so a wrong answer can't do damage.</p>
+        <ul>
+          <li>LLM features with the Gemini API</li>
+          <li>Workflow automation with n8n and bots</li>
+          <li>AI suggests, rules and people decide</li>
+          <li>Clear labels for what is a guess and what is a fact</li>
+        </ul>
+        <p class="outcome">Aim: <b>less manual work, with people still in control</b></p>
+      </article>
+      <article class="card service reveal">
+        <span class="icon-chip blue"><i class="fas fa-arrows-rotate"></i></span>
+        <h3>Modernize &amp; automate</h3>
+        <p>Turn spreadsheets, desktop tools and manual steps into web apps and pipelines.</p>
+        <ul>
+          <li>Desktop or Excel workflows moved to web apps</li>
+          <li>CI/CD with GitHub Actions</li>
+          <li>Security scanning (CodeQL), dependency hygiene</li>
+          <li>Refactoring with tests so changes stay safe</li>
+        </ul>
+        <p class="outcome">Aim: <b>fewer manual steps and safer releases</b></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="process">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Process</span>
+      <h2 class="h2">How a project runs with me</h2>
+      <p class="lead">Five steps, each with something concrete you can review before we move on.</p>
+    </div>
+    <div class="flow reveal" aria-label="Five-step process">
+      <div class="flow-step">
+        <div class="flow-node"><i class="fas fa-magnifying-glass"></i> Understand</div>
+        <p>Learn the goal, the users and where it hurts today.</p>
+        <ul><li>problem brief</li><li>success metrics</li></ul>
+      </div>
+      <div class="flow-step">
+        <div class="flow-node"><i class="fas fa-compass-drafting"></i> Design</div>
+        <p>Pick the simplest architecture that will hold up.</p>
+        <ul><li>architecture sketch</li><li>API contract</li></ul>
+      </div>
+      <div class="flow-step">
+        <div class="flow-node"><i class="fas fa-code"></i> Build</div>
+        <p>Small, reviewed increments you can try every week.</p>
+        <ul><li>working demo</li><li>pull requests</li></ul>
+      </div>
+      <div class="flow-step">
+        <div class="flow-node"><i class="fas fa-shield-halved"></i> Verify</div>
+        <p>Tests, security scan and a failure drill before launch.</p>
+        <ul><li>test report</li><li>chaos results</li></ul>
+      </div>
+      <div class="flow-step">
+        <div class="flow-node"><i class="fas fa-rocket"></i> Ship &amp; improve</div>
+        <p>Deploy, monitor, hand over and keep improving.</p>
+        <ul><li>docs &amp; runbooks</li><li>dashboards</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Architecture</span>
+      <h2 class="h2">What I build, end to end</h2>
+      <p class="lead">A typical system I'd deliver. The core is a Spring Boot API; around it, a reliability loop watches every layer.</p>
+    </div>
+    <div class="arch reveal">
+      <div class="arch-stack" aria-label="System layers">
+        <div class="arch-layer">
+          <span class="arch-label">Users</span>
+          <div class="arch-boxes">
+            <span class="arch-box"><i class="fas fa-display"></i> Web app (React)</span>
+            <span class="arch-box"><i class="fas fa-mobile-screen"></i> Mobile</span>
+            <span class="arch-box"><i class="fas fa-plug"></i> Partner APIs</span>
+          </div>
+        </div>
+        <div class="arch-arrow" aria-hidden="true"></div>
+        <div class="arch-layer">
+          <span class="arch-label">Edge</span>
+          <div class="arch-boxes">
+            <span class="arch-box"><i class="fas fa-network-wired"></i> nginx / gateway</span>
+            <span class="arch-box"><i class="fas fa-key"></i> JWT auth &amp; roles</span>
+            <span class="arch-box"><i class="fas fa-gauge"></i> Rate limiting</span>
+          </div>
+        </div>
+        <div class="arch-arrow" aria-hidden="true"></div>
+        <div class="arch-layer">
+          <span class="arch-label">Services</span>
+          <div class="arch-boxes">
+            <span class="arch-box core"><i class="fas fa-leaf"></i> Spring Boot API</span>
+            <span class="arch-box"><i class="fas fa-gears"></i> Background workers</span>
+            <span class="arch-box"><i class="fas fa-brain"></i> AI module (Gemini)</span>
+          </div>
+        </div>
+        <div class="arch-arrow" aria-hidden="true"></div>
+        <div class="arch-layer">
+          <span class="arch-label">Data &amp; integrations</span>
+          <div class="arch-boxes">
+            <span class="arch-box"><i class="fas fa-database"></i> PostgreSQL</span>
+            <span class="arch-box"><i class="fas fa-stream"></i> Kafka events</span>
+            <span class="arch-box"><i class="fas fa-envelope"></i> Email (Resend)</span>
+            <span class="arch-box"><i class="fab fa-github"></i> GitHub / CI</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="arch-side" aria-label="Reliability loop">
+        <span class="eyebrow">Reliability loop</span>
+        <svg class="loop-svg" viewBox="0 0 240 240" role="img" aria-label="Detect, diagnose, repair, verify, in a loop">
+          <circle class="ring" cx="120" cy="120" r="84"/>
+          <g class="spin"><circle cx="120" cy="36" r="4"/></g>
+          <rect class="node" x="80" y="20" width="80" height="30" rx="8"/><text x="120" y="39" text-anchor="middle">detect</text>
+          <rect class="node" x="156" y="105" width="80" height="30" rx="8"/><text x="196" y="124" text-anchor="middle">diagnose</text>
+          <rect class="node" x="80" y="190" width="80" height="30" rx="8"/><text x="120" y="209" text-anchor="middle">repair</text>
+          <rect class="node" x="4" y="105" width="80" height="30" rx="8"/><text x="44" y="124" text-anchor="middle">verify</text>
+          <text class="center" x="120" y="118" text-anchor="middle">evidence</text>
+          <text x="120" y="134" text-anchor="middle" style="fill:var(--text-3)">first</text>
+        </svg>
+        <p class="muted" style="font-size:.9rem">Every layer reports health. When something fails, the loop gathers evidence,
+        applies only an allowed fix, and marks it resolved after checks pass. Anything risky goes to a person.</p>
+        <a class="btn-link" href="projects.html#relay-aegis">See it working in RELAY AEGIS <i class="fas fa-arrow-right"></i></a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Real situations</span>
+      <h2 class="h2">What I'd do for you</h2>
+      <p class="lead">Three common problems, and the steps I'd take to solve each one.</p>
+    </div>
+    <div class="scenarios">
+      <div class="card scenario reveal">
+        <h4><i class="fas fa-triangle-exclamation"></i> "Our app goes down at night and nobody notices until customers complain."</h4>
+        <ol>
+          <li>Add health checks and metrics to each service and its database.</li>
+          <li>Send alerts to Slack with the evidence attached, not just "it's down".</li>
+          <li>Automate the safe fixes (restart a crashed service, reconnect a dependency) with limits and verification.</li>
+          <li>Run failure drills and write runbooks for anything that needs a person.</li>
+        </ol>
+      </div>
+      <div class="card scenario reveal">
+        <h4><i class="fas fa-triangle-exclamation"></i> "Our team re-types invoices and orders into spreadsheets every day."</h4>
+        <ol>
+          <li>Map the manual steps and the data they touch.</li>
+          <li>Build a Spring Boot API and a simple web screen to replace the spreadsheet.</li>
+          <li>Add validation and duplicate or fraud checks, like InvoiceGuard.</li>
+          <li>Import the old data, train the team and measure the time saved.</li>
+        </ol>
+      </div>
+      <div class="card scenario reveal">
+        <h4><i class="fas fa-triangle-exclamation"></i> "We want an AI feature, but we're worried about wrong answers."</h4>
+        <ol>
+          <li>Start with one narrow, high-value task such as summaries or triage.</li>
+          <li>Keep AI as a labelled suggestion; rules and people approve actions.</li>
+          <li>Log inputs and outputs so quality can be reviewed.</li>
+          <li>Roll out to a small group first, then expand on evidence.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="container">
+    <div class="section-head"><span class="eyebrow">Toolbox</span><h2 class="h2">Tools I use to deliver</h2></div>
+    <div class="grid grid-4">
+      <div class="card skill-group reveal"><h3><i class="fas fa-server"></i> Backend</h3><div class="tags"><span class="tag">Java 21</span><span class="tag">Spring Boot 3</span><span class="tag">Spring Security</span><span class="tag">JPA / Hibernate</span><span class="tag">REST</span><span class="tag">Kafka</span></div></div>
+      <div class="card skill-group reveal"><h3><i class="fas fa-database"></i> Data</h3><div class="tags"><span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">H2</span><span class="tag">Flyway</span><span class="tag">SQL</span></div></div>
+      <div class="card skill-group reveal"><h3><i class="fas fa-heart-pulse"></i> Ops &amp; reliability</h3><div class="tags"><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">GitHub Actions</span><span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">Sentry</span></div></div>
+      <div class="card skill-group reveal"><h3><i class="fas fa-brain"></i> AI &amp; frontend</h3><div class="tags"><span class="tag">Gemini API</span><span class="tag">n8n</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">JavaScript</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="container">
+    <div class="cta reveal">
+      <div>
+        <h2 class="h2">Have a problem like these?</h2>
+        <p class="lead" style="margin-top:12px">Send me a short description. I'll reply with a first plan and an honest estimate.</p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="contact.html"><i class="fas fa-paper-plane"></i> Start a conversation</a>
+        <a class="btn btn-ghost" href="pitch.html"><i class="fas fa-file-signature"></i> View my pitch</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>© 2026 Manas Suryavanshi · Java backend developer · Ajmer, India</p>
+    <div class="socials">
+      <a class="icon-btn" href="https://github.com/krieger-geist" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a class="icon-btn" href="https://www.linkedin.com/in/manas-suryavanshi-a17986363/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a class="icon-btn" href="https://x.com/ManasSurya25491" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+      <a class="icon-btn" href="mailto:manas240surya@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+  </div>
+</footer>
+<button class="icon-btn top-btn" type="button" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

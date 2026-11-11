@@ -1,382 +1,264 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Manas Suryavanshi | Java Backend Developer</title>
-
-    <!-- Google Font -->
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-
-    <!-- Font Awesome -->
-
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-    <!-- Main CSS -->
-
-    <link rel="stylesheet" href="style.css">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manas Suryavanshi · Java Backend Developer</title>
+<meta name="description" content="Manas Suryavanshi builds Java and Spring Boot backends and tests how they handle failure. Creator of RELAY AEGIS, an evidence-driven self-healing system.">
+<meta name="theme-color" content="#0a0d12">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Manas Suryavanshi · Java Backend Developer">
+<meta property="og:description" content="Manas Suryavanshi builds Java and Spring Boot backends and tests how they handle failure. Creator of RELAY AEGIS, an evidence-driven self-healing system.">
+<meta property="og:url" content="https://manas-suryavanshi.netlify.app/">
+<meta property="og:image" content="https://manas-suryavanshi.netlify.app/relay-aegis.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230a0d12'/%3E%3Ctext x='50' y='64' font-family='monospace' font-size='40' font-weight='700' text-anchor='middle' fill='%234ade80'%3EMS%3C/text%3E%3C/svg%3E">
+<script>(function(){try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-<script>if(localStorage.getItem("theme")==="light"){document.body.classList.add("light");}</script>
-<!-- Loading Screen -->
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <nav class="container nav" aria-label="Main">
+    <a class="brand" href="index.html" aria-label="Manas Suryavanshi, home">
+      <span class="brand-mark">MS</span>
+      <span>Manas Suryavanshi</span>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="projects.html">Work</a></li>
+      <li><a href="playbook.html">Playbook</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="achievements.html">Achievements</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a class="btn btn-primary btn-sm hire-btn" href="pitch.html"><i class="fas fa-handshake"></i><span>Work with me</span></a>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch colour theme">
+        <i class="fas fa-moon theme-icon-dark" aria-hidden="true"></i>
+        <i class="fas fa-sun theme-icon-light" aria-hidden="true"></i>
+      </button>
+      <button class="icon-btn menu-btn" type="button" aria-label="Open menu" aria-controls="nav-links" aria-expanded="false">
+        <i class="fas fa-bars" aria-hidden="true"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<main id="main">
 
-<div id="loader">
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <span class="status-pill"><span class="dot pulse"></span> Open to internships &amp; backend roles</span>
+      <h1 class="display">I build backend systems that <span class="hl">keep running</span>, and I test that they do.</h1>
+      <p class="lead">I'm Manas, a Java &amp; Spring Boot developer. I design APIs, add AI where it helps,
+      and build monitoring and self-healing so software can recover when things break.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="projects.html"><i class="fas fa-layer-group"></i> See my work</a>
+        <a class="btn btn-ghost" href="playbook.html"><i class="fas fa-diagram-project"></i> My playbook</a>
+      </div>
+      <div class="hero-meta">
+        <span><i class="fas fa-earth-asia"></i> Ajmer, India · open to remote worldwide</span>
+        <span><i class="fas fa-graduation-cap"></i> BCA, final year</span>
+        <span><i class="fab fa-github"></i> Code on GitHub</span>
+      </div>
+    </div>
 
-    <div class="loader-circle"></div>
+    <div class="hero-visual" aria-label="Profile card">
+      <figure class="badge-card">
+        <div class="badge-strap" aria-hidden="true"></div>
+        <div class="badge-top"><span>DEV PASS</span><span>MS-01</span></div>
+        <div class="badge-photo"><img src="profile-badge.jpg" alt="Manas Suryavanshi" width="480" height="600"></div>
+        <figcaption class="badge-info">
+          <strong>Manas Suryavanshi</strong>
+          <span>Java backend developer</span>
+        </figcaption>
+        <dl class="badge-meta">
+          <div><dt>Stack</dt><dd>Java · Spring Boot</dd></div>
+          <div><dt>Based in</dt><dd>Ajmer, IN</dd></div>
+          <div><dt>Focus</dt><dd><span class="dot"></span> Reliability &amp; APIs</dd></div>
+        </dl>
+        <div class="badge-code" aria-hidden="true"></div>
+      </figure>
+    </div>
+  </div>
 
-    <h2>Loading Portfolio...</h2>
+  <div class="container" style="margin-top:clamp(40px,6vw,72px)">
+    <div class="metrics reveal">
+      <div class="metric"><b>10+</b><span>projects on GitHub</span></div>
+      <div class="metric"><b>5–11 s</b><span>detection in my RELAY tests</span></div>
+      <div class="metric"><b>&lt; 1 min</b><span>recovery in my RELAY tests</span></div>
+      <div class="metric"><b>4</b><span>certifications incl. JPMorgan</span></div>
+    </div>
+  </div>
+</section>
 
-</div>
-
-<!-- Animated Background -->
-
-<div id="particles"></div>
-
-<!-- Mouse Glow -->
-
-<div id="cursor-glow"></div>
-    <!-- =========================
-         HEADER
-    ========================== -->
-
-    <header>
-
-        <div class="container">
-
-            <nav class="navbar">
-
-                <div class="logo">
-                    Manas Suryavanshi
-                </div>
-
-                <ul class="nav-links">
-
-                    
-
-                    <li><a href="index.html" class="active">Home</a></li>
-
-                    <li><a href="about.html">About</a></li>
-
-                    <li><a href="projects.html">Projects</a></li>
-
-                    <li><a href="achievements.html">Achievements</a></li>
-
-                    <li><a href="contact.html">Contact</a></li>
-
-                </ul>
-                 <button id="theme-toggle">
-
-                  <i class="fas fa-moon"></i>
-
-                            </button>
-
-                <div class="menu-btn">
-
-                    <i class="fas fa-bars"></i>
-
-                </div>
-
-            </nav>
-
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Latest project</span>
+      <h2 class="h2">It breaks. It heals itself.</h2>
+    </div>
+    
+    <article class="feature reveal" id="relay-aegis">
+      <div class="feature-media">
+        <img src="relay-aegis.jpg" alt="RELAY AEGIS: it breaks, it heals itself. Detect, diagnose, repair, verify." width="1280" height="720">
+        <a class="play" href="https://youtu.be/whXmm6mRuRM" target="_blank" rel="noopener noreferrer" aria-label="Watch the RELAY AEGIS demo on YouTube">
+          <span><i class="fas fa-play"></i> Watch the 5-min demo</span>
+        </a>
+      </div>
+      <div class="feature-body">
+        <div class="feature-badge">
+          <span class="tag"><span class="dot"></span> Latest · Oct 2026</span>
+          <span class="tag">Hackathon 2026 · Sentry × Dezyne E'cole</span>
         </div>
-
-    </header>
-
-    <!-- =========================
-         HERO SECTION
-    ========================== -->
-
-    <section class="hero">
-
-        <div class="container">
-
-            <div class="hero-content">
-
-                <!-- LEFT -->
-
-                <div>
-
-                    <div class="hero-tag">
-
-                      💡 Building Scalable Java Applications & AI-Powered Solutions
-
-                    </div>
-
-                    <h1>
-
-                        Hi,
-
-                        I'm
-
-                        <span>Manas Suryavanshi</span>
-
-                    </h1>
-
-                    <h2 id="typing-text">
-
-                        Java Backend Developer
-
-                    </h2>
-
-                    <p>
-
-                        Passionate about building scalable Java applications,
-                        REST APIs, Spring Boot backends and exploring AI
-                        Integration in modern software development.
-
-                        Currently pursuing BCA while continuously improving
-                        through projects and internships.
-
-                    </p>
-
-                    <div class="hero-buttons">
-
-                        <a href="projects.html" class="btn btn-primary">
-
-                            <i class="fas fa-code"></i>
-
-                            View Projects
-
-                        </a>
-
-                        <a href="resume.pdf"
-                            download
-                            class="btn btn-outline">
-
-                            <i class="fas fa-download"></i>
-
-                            Resume
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-                <!-- RIGHT -->
-
-                <div class="hero-image">
-
-                    <img src="profile.jpg"
-                        alt="Manas Suryavanshi">
-
-                    <div class="tech-icon icon-java">
-                        <i class="fab fa-java"></i>
-                    </div>
-
-                    <div class="tech-icon icon-db">
-                        <i class="fas fa-database"></i>
-                    </div>
-
-                    <div class="tech-icon icon-git">
-                        <i class="fab fa-git-alt"></i>
-                    </div>
-
-                    <div class="tech-icon icon-ai">
-                        <i class="fas fa-robot"></i>
-                    </div>
-
-                    <div class="tech-icon icon-spring">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- STATS -->
-
-            <div class="stats">
-
-                <div class="stat">
-
-                    <h2>8+</h2>
-
-                    <p>Projects</p>
-
-                </div>
-
-                <div class="stat">
-
-                   <h2>10+</h2>
-                    <p>Tools & Technologies</p>
-                </div>
-
-                <div class="stat">
-
-                   <h2>2+</h2>
-                <p>Virtual Experience Programs</p>
-
-                </div>
-
-                <div class="stat">
-
-                  <h2>4+</h2>
-                <p>Professional Certificates</p>
-
-                </div>
-
-            </div>
-
-            <!-- Scroll -->
-
-            <div class="scroll-indicator">
-
-                <i class="fas fa-angle-down"></i>
-
-            </div>
-
+        <h3 class="h2">RELAY AEGIS</h3>
+        <p class="muted">Evidence-driven self-healing for software in production. It detects a failure, looks for the cause
+        in the evidence, repairs only what a policy allows, and marks it fixed after fresh health checks pass. Code
+        problems end as a pull request a person reviews, not a blind restart.</p>
+        <div class="pipeline" aria-label="Pipeline">
+          <b>detect</b><i>→</i><b>collect evidence</b><i>→</i><b>diagnose</b><i>→</i><b>repair</b><i>→</i><b>verify</b>
         </div>
-
-    </section>
-
-    <!-- =========================
-         FEATURED PROJECTS PREVIEW
-    ========================== -->
-
-    <section class="section">
-
-        <div class="container">
-
-            <h2 class="section-title">
-
-                Featured Projects
-
-            </h2>
-
-            <div class="grid-3">
-
-
-                    <div class="card">
-
-                    <h3> Smart Business AI Assistant</h3>
-
-                    <p>
-
-                        Built a production-style multi-tenant SaaS platform using Java Spring Boot, React, 
-                        PostgreSQL, Docker, and Google Gemini AI to streamline business operations with secure,
-                         AI-powered management tools.
-
-                    </p>
-
-                </div>
-
-
-
-
-                <div class="card">
-
-                    <h3> Smart Campus AI Agent</h3>
-
-                    <p>
-
-                        AI-powered campus assistant that helps students with
-                        navigation, information and automation.
-
-                    </p>
-
-                </div>
-
-                <div class="card">
-
-                    <h3>Smart User Portal </h3>
-
-                    <p>
-
-                        A modern Task Management Web Application built using Java Servlet,
-                        JSP, JDBC, MySQL, and  following MVC Architecture.
-                    </p>
-
-                </div>
-
-            </div>
-
-            <br><br>
-
-            <center>
-
-                <a href="projects.html"
-                    class="btn btn-primary">
-
-                    View All Projects
-
-                </a>
-
-            </center>
-
+        <div class="mini-metrics">
+          <div><b>5–11 s</b><span>to detect, in my tests</span></div>
+          <div><b>&lt; 1 min</b><span>to recover, in my tests</span></div>
+          <div><b>4</b><span>failure types healed in the demo</span></div>
         </div>
-
-    </section>
-
-    <!-- =========================
-         FOOTER
-    ========================== -->
-
-    <footer>
-
-        <div class="container">
-
-            <h3>
-
-                Let's Build Something Amazing 🚀
-
-            </h3>
-
-            <br>
-
-            <div class="socials">
-
-                <a href="https://github.com/krieger-geist">
-
-                    <i class="fab fa-github"></i>
-
-                </a>
-
-                <a href="https://www.linkedin.com/in/manas-suryavanshi-a17986363/">
-
-                    <i class="fab fa-linkedin"></i>
-
-                </a>
-
-                <!-- <a href="https://www.instagram.com/manas_singh_suryavanshi_04">
-
-                    <i class="fab fa-instagram"></i>
-
-                </a> -->
-
-                <a href="https://x.com/ManasSurya25491">
-
-                    <i class="fab fa-twitter"></i>
-
-                </a>
-
-            </div>
-
-            <br>
-
-            <p>
-
-                © 2026 Manas Suryavanshi | All Rights Reserved
-
-            </p>
-
+        <div class="tags"><span class="tag">Java 21</span><span class="tag">Spring Boot 3.4</span><span class="tag">React + TypeScript</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Prometheus</span><span class="tag">CodeQL</span></div>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="https://github.com/krieger-geist/relay-aegis" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View on GitHub</a>
+          <a class="btn btn-ghost" href="https://youtu.be/whXmm6mRuRM" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i> Watch demo</a>
         </div>
+      </div>
+    </article>
+  </div>
+</section>
 
-    </footer>
+<section class="section">
+  <div class="container">
+    <div class="grid grid-2" style="align-items:start">
+      <div class="section-head" style="margin-bottom:0">
+        <span class="eyebrow">The idea I follow</span>
+        <p class="manifesto">Evidence over assumptions. Something is <span class="hl">"fixed"</span> when a check confirms it.</p>
+        <p class="lead">A lot of time in an outage goes into guessing. I try to build systems that measure first,
+        change as little as possible, and check the result before calling it done.</p>
+        <p class="terminal-caption">What that looks like in RELAY AEGIS (example run from my demo):</p>
+        <div class="terminal" aria-label="Example RELAY AEGIS incident log">
+          <div class="terminal-bar"><i></i><i></i><i></i><span>relay-aegis · incident log</span></div>
+          <div class="terminal-body" id="terminal">
+            <div class="ln"><span class="t-dim">$</span> chaos stop-db --healing on</div>
+            <div class="ln"><span class="t-bad">✗</span> health check failed: <span class="t-dim">postgres: connection refused</span></div>
+            <div class="ln"><span class="t-bad">✗</span> health check failed <span class="t-dim">(2/2) → incident opened</span></div>
+            <div class="ln"><span class="t-blue">→</span> evidence: container exited, dependency down</div>
+            <div class="ln"><span class="t-blue">→</span> diagnosis: <span class="t-warn">database stopped</span> · confidence high</div>
+            <div class="ln"><span class="t-blue">→</span> policy: RESTART_DEPENDENCY allowed · attempt 1/3</div>
+            <div class="ln"><span class="t-ok">✓</span> action executed</div>
+            <div class="ln"><span class="t-ok">✓</span> verified: 3/3 health checks passing</div>
+            <div class="ln"><span class="t-ok">● resolved</span> <span class="t-dim">· no human action</span> <span class="caret"></span></div>
+      </div>
+    </div>
+      </div>
+      <div class="grid" style="gap:14px">
+        <div class="card principle reveal"><span class="num">01</span><h3 class="h3">Measure before you fix</h3><p class="muted">Health checks, logs and metrics come first. A diagnosis needs evidence, not a hunch.</p></div>
+        <div class="card principle reveal"><span class="num">02</span><h3 class="h3">Make failure boring</h3><p class="muted">Design for things breaking: timeouts, retries, safe automatic recovery and clear runbooks.</p></div>
+        <div class="card principle reveal"><span class="num">03</span><h3 class="h3">Small, reviewed, verified changes</h3><p class="muted">Test each change on its own, get it reviewed, and call it done when the checks pass.</p></div>
+        <div class="card principle reveal"><span class="num">04</span><h3 class="h3">Leave it simpler than I found it</h3><p class="muted">Clean APIs, written docs and a handover your team can follow.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Main JavaScript -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Selected work</span>
+      <h2 class="h2">Backends, APIs and AI that do real jobs</h2>
+    </div>
+    <div class="grid grid-3">
+      
+      <article class="card card-hover project project-item reveal" data-cats="backend ai">
+        <div class="project-thumb"><img src="project9.jpg" alt="Smart Business AI Assistant screenshot" loading="lazy" width="1000" height="625"></div>
+        <div class="project-body">
+          <span class="project-kicker">SaaS · Full-stack · AI</span>
+          <h3 class="h3">Smart Business AI Assistant</h3>
+          <p>A multi-tenant SaaS platform for small businesses: customers, orders and inventory, with Gemini-powered insights. Built as a production-style app with auth, Docker and a React front end.</p>
+          <div class="tags"><span class="tag">Java 21</span><span class="tag">Spring Boot 3</span><span class="tag">React</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span><span class="tag">Gemini API</span></div>
+          <div class="project-links"><a href="https://github.com/krieger-geist/smart-business-ai-assistant" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Code</a><a href="https://smart-business-ai-assistant.vercel.app/" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square"></i> Live</a></div>
+        </div>
+      </article>
+      <article class="card card-hover project project-item reveal" data-cats="backend">
+        <div class="project-thumb"><img src="project10.jpg" alt="InvoiceGuard API screenshot" loading="lazy" width="1000" height="625"></div>
+        <div class="project-body">
+          <span class="project-kicker">API · Fintech · Security</span>
+          <h3 class="h3">InvoiceGuard API</h3>
+          <p>Secure multi-tenant API that flags invoice risk before payment: fraud signals, duplicate invoices, suspicious vendor activity and approval gaps.</p>
+          <div class="tags"><span class="tag">Java 21</span><span class="tag">Spring Boot 3.3</span><span class="tag">Spring Security</span><span class="tag">JPA</span><span class="tag">PostgreSQL</span><span class="tag">OpenAPI</span></div>
+          <div class="project-links"><a href="https://github.com/krieger-geist/invoiceguard-api" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Code</a></div>
+        </div>
+      </article>
+      <article class="card card-hover project project-item reveal" data-cats="backend web">
+        <div class="project-thumb"><img src="project1.jpg" alt="Smart User Portal screenshot" loading="lazy" width="1000" height="625"></div>
+        <div class="project-body">
+          <span class="project-kicker">Web app · MVC</span>
+          <h3 class="h3">Smart User Portal</h3>
+          <p>Task management web app built on Java Servlets and JSP with a clean MVC structure and a MySQL data layer.</p>
+          <div class="tags"><span class="tag">Java</span><span class="tag">Servlet</span><span class="tag">JSP</span><span class="tag">JDBC</span><span class="tag">MySQL</span></div>
+          <div class="project-links"><a href="https://github.com/krieger-geist/Smart-User-Portal-Java-Servlet-JSP-MVC-Project" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Code</a></div>
+        </div>
+      </article>
+    </div>
+    <p style="margin-top:28px"><a class="btn-link" href="projects.html">All projects <i class="fas fa-arrow-right"></i></a></p>
+  </div>
+</section>
 
-    <script src="script.js"></script>
+<section class="section-tight">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">What I can do for your team</span>
+      <h2 class="h2">Four ways I make systems better</h2>
+    </div>
+    <div class="grid grid-4">
+      <a class="card card-hover service reveal" href="playbook.html#services"><span class="icon-chip"><i class="fas fa-server"></i></span><h3>Backend APIs</h3><p>Spring Boot services with auth, a solid schema and docs.</p></a>
+      <a class="card card-hover service reveal" href="playbook.html#services"><span class="icon-chip"><i class="fas fa-heart-pulse"></i></span><h3>Reliability</h3><p>Monitoring, alerts and self-healing to help shorten downtime.</p></a>
+      <a class="card card-hover service reveal" href="playbook.html#services"><span class="icon-chip blue"><i class="fas fa-wand-magic-sparkles"></i></span><h3>Safe AI features</h3><p>AI that suggests; policy and people decide.</p></a>
+      <a class="card card-hover service reveal" href="playbook.html#services"><span class="icon-chip blue"><i class="fas fa-arrows-rotate"></i></span><h3>Modernize &amp; automate</h3><p>Manual and desktop workflows turned into web apps and pipelines.</p></a>
+    </div>
+    <p style="margin-top:28px"><a class="btn-link" href="playbook.html">Open the playbook <i class="fas fa-arrow-right"></i></a></p>
+  </div>
+</section>
 
+<section class="section-tight">
+  <div class="container">
+    <div class="cta reveal">
+      <div>
+        <h2 class="h2">Have a system that needs to be built, or fixed?</h2>
+        <p class="lead" style="margin-top:12px">Tell me what's slowing your team down. I'll reply with how I'd approach it.</p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="contact.html"><i class="fas fa-paper-plane"></i> Start a conversation</a>
+        <a class="btn btn-ghost" href="pitch.html"><i class="fas fa-file-signature"></i> View my pitch</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>© 2026 Manas Suryavanshi · Java backend developer · Ajmer, India</p>
+    <div class="socials">
+      <a class="icon-btn" href="https://github.com/krieger-geist" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a class="icon-btn" href="https://www.linkedin.com/in/manas-suryavanshi-a17986363/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a class="icon-btn" href="https://x.com/ManasSurya25491" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+      <a class="icon-btn" href="mailto:manas240surya@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+  </div>
+</footer>
+<button class="icon-btn top-btn" type="button" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+<script src="config.js"></script>
+<script src="script.js"></script>
 </body>
-
 </html>
